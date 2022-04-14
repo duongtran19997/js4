@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>catcatchmouse</title>
+</head>
+<body>
+<script>
+    class Rat{
+        constructor(name,weight,speed) {
+            this.name=name;
+            this.ratweight=weight;
+            this.ratspeed=speed;
+            this.ratspeak='chitchit';
+            this.status=true;
+        }
+        ratRoar(){
+            if(this.status){
+                alert(this.ratspeak)}
+
+        }
+        ratRun(){
+            if(this.status){
+                return this.ratspeed;
+            }
+        }
+        ratbeCatched(cat){
+            if(cat.catspeed>this.ratspeed){
+                this.status=false;
+                alert(this.ratspeak);
+                cat.catweight+=this.ratweight;
+                console.log(cat.catweight+';'+this.ratweight)
+            }
+        }
+
+    }
+    class Cat{
+        constructor(name,weight,speed) {
+            this.name=name;
+            this.catweight=weight;
+            this.catspeed=speed;
+            this.catspeak='meomeo';
+        }
+        catRoar(){
+            alert(this.catspeak)
+        }
+    }
+
+    let Jerry = new Rat('jerry',10,10);
+    let Tom = new Cat('tom',20,15)
+    Jerry.ratRoar();
+    Jerry.ratbeCatched(Tom);
+</script>
+</body>
+</html>
