@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tiviandremote</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(remotecode) {
+            this.remotecode = remotecode;
+        }
+        turnOnTV(Tivi){
+            if(this.remotecode === Tivi.remotecode){
+                Tivi.turnOn()
+            }
+        }
+        turnOffTV(Tivi){
+            if(this.remotecode === Tivi.remotecode){
+                Tivi.turnOff()
+            }
+        }
+        changeChanelTV(Tivi,number){
+            if(this.remotecode === Tivi.remotecode){
+                Tivi.changeChanel(number)
+            }
+        }
+        volChangeTV(Tivi,number){
+            if(this.remotecode === Tivi.remotecode){
+                Tivi.volChange(number)
+            }
+        }
+
+    }
+
+    class Tivi {
+        constructor(remotecode) {
+            this.chanel = 5;
+            this.volume = 25;
+            this.status = false;
+            this.remotecode = remotecode;
+        }
+
+        checkChanel() {
+            if (this.status) {
+                console.log('tividangbat kenh' + this.chanel)
+            }else{
+                console.log('tivi dang tat')
+            }
+
+
+        }
+
+        changeChanel(number) {
+            if (this.status) {
+            this.chanel=number;
+                console.log('kenh' + this.chanel)}
+            else {
+                console.log('tivi dang tat')
+            }
+            // if (this.status) {
+            //     let number = Number(number)
+            //     this.chanel = number;
+            //     console.log('kenh' + this.chanel)
+            // }else{
+            //     console.log('tivi dang tat')
+            // }
+
+        }
+        turnOn(){
+            if(this.status){
+                console.log('tivi dang bat')
+
+            }else{
+                console.log('da bat tivi')
+                this.status=true;
+            }
+        }
+        turnOff(){
+            if (this.status){
+                console.log('tivi da tat')
+            }else {
+                console.log('tivi dang tat')
+                 this.status = false
+            }
+        }
+        volChange(number){
+            if(this.status){
+                let number = Number;
+                this.volume+= number;
+                console.log('am luong'+this.volume)
+            }else{
+                console.log('tivi dang tat')
+            }
+        }
+
+    }
+
+    let SamsungTV = new Tivi(12345);
+    let SamsungRemote = new Remote(12345);
+    SamsungRemote.turnOnTV(SamsungTV);
+    SamsungRemote.changeChanelTV(SamsungTV,30);
+    SamsungRemote.volChangeTV(SamsungTV,40);
+
+</script>
+</body>
+</html>
